@@ -1,0 +1,12 @@
+<h1 class="header">Alpha blog</h1>
+
+<nav class="nav">
+<a class="action-button outline-dark" href="<%= request.base_url %>/articles">Back to articles list</a>
+</nav>
+
+<main class="main">
+    <h3 class="page-title">Showing article</h3>
+    <h2><%= @article.title %></h2>
+
+    <p><strong><%= @article.description %></strong></p>
+</main>

@@ -1,0 +1,38 @@
+<style>
+    article {
+        background-color: #e5e5e5;
+        margin-top: 20px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 10px;
+        color: #333;
+        align-items: center;
+        transition: background-color 0.3s;
+        max-width: 700px;
+    }
+
+    article:hover {
+        background-color: #eee;
+    }
+</style>
+
+<h1 class="header">Alpha blog</h1>
+
+<nav class="nav">
+<a class="action-button outline-dark" href="<%= request.base_url %>/articles/new">Create new article</a>
+</nav>
+
+<main class="main">
+    <h3 class="page-title">Articles list</h3>
+    <% @articles.each do |article| %>
+        <article>
+            <span><%= article.title %></span>
+            <div>
+                <a class="action-button green" href="<%= request.base_url + '/articles/' + article.id.to_s %>">Show</a>
+                <a class="action-button blue" href="<%= request.base_url + '/articles/' + article.id.to_s + '/edit' %>">Edit</a>
+                <%= link_to 'Delete', article_path(article), method: :delete, data:{confirm:"Are you sure?"}, class: "action-button red" %>
+            </div>
+        </article>
+    <% end %>
+</main>
