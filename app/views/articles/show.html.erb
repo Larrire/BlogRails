@@ -1,12 +1,24 @@
-<h1 class="header">Alpha blog</h1>
 
-<nav class="nav">
-<a class="action-button outline-dark" href="<%= request.base_url %>/articles">Back to articles list</a>
-</nav>
+<style>
+    section.article {
+        display: flex;
+        justify-content: center;
+    }
+    div.card {
+        max-width: 1024px;
+    }
+</style>
 
 <main class="main">
-    <h3 class="page-title">Showing article</h3>
-    <h2><%= @article.title %></h2>
 
-    <p><strong><%= @article.description %></strong></p>
+    <section class="article">
+        <div class="card w-100">
+            <div class="card-body">
+                <h2><%= @article.title %></h2>
+                <hr/>
+                <p><strong><%= @article.description %></strong></p>
+            </div>
+        </div>
+    </section>
+
 </main>

@@ -6,14 +6,14 @@
 
 <%= form_with(model: @article, local: true) do |f| %>
     <p>
-        <%= f.label :title %><br/> 
-        <%= f.text_field :title %>
+        <%= f.label :title, class: "font-weight-bold" %><br/> 
+        <%= f.text_field :title, class:"form-control" %>
     </p>
     <p>
-        <%= f.label :description %><br/> 
-        <%= f.text_area :description %> 
+        <%= f.label :description, class: "font-weight-bold" %><br/> 
+        <%= f.text_area :description, class:"form-control" %> 
     </p>
     <p>
-        <%= f.submit %> 
+        <%= f.submit (@article.id) ? 'Save changes' : 'Create article', class: 'btn btn-success' %> 
     </p>
 <% end %>

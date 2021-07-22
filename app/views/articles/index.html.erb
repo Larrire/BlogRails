@@ -1,37 +1,30 @@
 <style>
-    article {
-        background-color: #e5e5e5;
+    article.card {
         margin-top: 20px;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        border-radius: 10px;
+        transition: box-shadow 0.3s;
         color: #333;
-        align-items: center;
-        transition: background-color 0.3s;
-        max-width: 700px;
     }
 
     article:hover {
-        background-color: #eee;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.2)
+    }
+
+    article .btn {
+        font-weight: bold;
     }
 </style>
 
-<h1 class="header">Alpha blog</h1>
-
-<nav class="nav">
-<a class="action-button outline-dark" href="<%= request.base_url %>/articles/new">Create new article</a>
-</nav>
-
 <main class="main">
-    <h3 class="page-title">Articles list</h3>
+    <h3 class="page-title font-weight-bold">Articles list</h3>
     <% @articles.each do |article| %>
-        <article>
-            <span><%= article.title %></span>
-            <div>
-                <a class="action-button green" href="<%= request.base_url + '/articles/' + article.id.to_s %>">Show</a>
-                <a class="action-button blue" href="<%= request.base_url + '/articles/' + article.id.to_s + '/edit' %>">Edit</a>
-                <%= link_to 'Delete', article_path(article), method: :delete, data:{confirm:"Are you sure?"}, class: "action-button red" %>
+        <article class="card">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <span class="font-weight-bold"><%= article.title %></span> 
+                <div>
+                    <a class="btn btn-outline-success" href="<%= request.base_url + '/articles/' + article.id.to_s %>">Show</a>
+                    <a class="btn btn-outline-info" href="<%= request.base_url + '/articles/' + article.id.to_s + '/edit' %>">Edit</a>
+                    <%= link_to 'Delete', article_path(article), method: :delete, data:{confirm:"Are you sure?"}, class: "btn btn-outline-danger" %>
+                </div>
             </div>
         </article>
     <% end %>

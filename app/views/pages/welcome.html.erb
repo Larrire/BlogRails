@@ -1,0 +1,43 @@
+<style>
+    .onTop {
+        background-color: transparent;
+        box-shadow: none;
+        color: white !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .onTop .nav-link{
+        color: #eee !important;
+    }
+
+    .onTop .nav-link:hover{
+        color: #ED1C24 !important;
+    }
+
+    h1{
+        color: white;
+        text-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+    }
+    p{
+        color: white;
+        text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+    }
+</style>
+
+<div class="bg-image">
+    <div class="div-glass">
+        <h1 class="display-4">Welcome to <span class="text-danger">Rails</span> Blog!</h1>
+        <p class="lead">Here you will find worthy read content about ruby on rails world.</p>
+        <p>Feel free to contribute to out community with your knowledge and experience.</p>
+        <a class="btn btn-danger btn-lg" href="#" role="button">Sign up</a>
+    </div>
+</div>
+
+<div class="bg-info">
+        Opa
+</div>
+
+<script>
+    base_url = '<%= request.base_url %>'
+</script>
+<script defer src="<%= request.base_url %>/js/pages/welcome.js"></script>

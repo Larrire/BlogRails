@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
@@ -91,9 +92,12 @@
 
 .main {
     padding: 20px;
+    padding-top: 84px;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
-form {
+/* form {
     margin-bottom: 10px;
     max-width: 700px;
 }
@@ -118,4 +122,4 @@ form textarea {
     width: 100%;
     border-radius: 5px;
     resize: none;
-}
+} */

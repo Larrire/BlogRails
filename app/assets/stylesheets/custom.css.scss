@@ -1,0 +1,69 @@
+// Place all the styles related to the teste controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// @import 'bootstrap/dist/css/bootstrap';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #eee;
+}
+
+img#navbar-logo {
+    width: 150px;
+}
+
+.navbar {
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    background-color: #eee;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: background 0.3s;
+}
+
+li.nav-item a.nav-link {
+    font-weight: bold;
+    color: #ccc;
+}
+
+.bg-image {
+    height: 100vh;
+    background-image: asset-url('thought-catalog-505eectW54k-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+}
+
+.div-glass {
+    background-color: rgba(0,0,0,0.4);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.btn-outline-danger{
+    color: #ED1C24;
+    border-color: #ED1C24;
+}
+.btn-outline-danger:hover{
+    background-color: #ED1C24;
+}
+
+.btn-outline-success{
+    color: #009E19;
+    border-color: #009E19;
+}
+.btn-outline-success:hover{
+    background-color: #009E19;
+}
