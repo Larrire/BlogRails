@@ -1,0 +1,15 @@
+<article class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <span class="font-weight-bold">
+            <%= article.title.to_s + ' - ' + article.id.to_s %>
+        </span>
+        <div>
+            <a class="btn btn-outline-success" href="<%= request.base_url + '/articles/' + article.id.to_s %>">Show</a>
+            <a class="btn btn-outline-info" href="<%= request.base_url + '/articles/' + article.id.to_s + '/edit' %>">Edit</a>
+            <%= link_to 'Delete', article_path(article), method: :delete, data:{confirm:"Are you sure?"}, class: "btn btn-outline-danger" %>
+        </div>
+    </div>
+    <div class="card-body">
+        <%= article.description %>
+    </div>
+</article>

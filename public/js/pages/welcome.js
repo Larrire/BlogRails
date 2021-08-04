@@ -6,7 +6,6 @@ btnSearch = document.querySelector('#btnSearch');
 btnSearch.classList.remove('btn-outline-dark')
 
 window.onscroll = function(){
-    console.log(window.scrollY)
     if( window.scrollY === 0 ){
         navbar.classList.add('onTop');
         logo.setAttribute('src', `${base_url}/blog-logo-white.png`)

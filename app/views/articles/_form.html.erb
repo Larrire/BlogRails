@@ -1,3 +1,10 @@
+<style>
+    .textarea-description {
+        min-height: 250px;
+        resize: none;
+    }
+</style>
+
 <% if @article.errors.any? %>
     <% @article.errors.full_messages.each do |error| %>
         <h5 class="error"><%= error %></h5>
@@ -7,13 +14,50 @@
 <%= form_with(model: @article, local: true) do |f| %>
     <p>
         <%= f.label :title, class: "font-weight-bold" %><br/> 
-        <%= f.text_field :title, class:"form-control" %>
+        <%= f.text_field :title, class:"form-control input-title" %>
     </p>
     <p>
-        <%= f.label :description, class: "font-weight-bold" %><br/> 
-        <%= f.text_area :description, class:"form-control" %> 
+        <div class="d-flex justify-content-between">
+            <%= f.label :description, class: "font-weight-bold" %><br/>
+            <div>
+                <span id="span-current-length">
+                    <%= (@article[:description].present?) ? @article[:description].length : 0 %>
+                </span>
+                <span>/</span>
+                <span id="span-max-length">300</span>
+            </div>
+        </div>
+        <%= f.text_area :description, class:"form-control textarea-description" %> 
     </p>
     <p>
-        <%= f.submit (@article.id) ? 'Save changes' : 'Create article', class: 'btn btn-success' %> 
+        <%= f.submit (@article.id) ? 'Save changes' : 'Create article', class: 'btn btn-success' %>
+        <% if @article[:id].present? %>
+            <%= link_to 'Delete', article_path(@article), method: :delete, data:{confirm:"Are you sure?"}, class: "btn btn-outline-danger" %>
+        <% end %>
     </p>
 <% end %>
+
+<script>
+    spanCurrentLength = document.querySelector('#span-current-length');
+    textareaDescription = document.querySelector('.textarea-description');
+
+    function verifyDescriptionMinimumLength(){
+        length = textareaDescription.value.length;
+        if( length < 10 ){
+            spanCurrentLength.classList.add('text-danger');
+            return;
+        }
+        spanCurrentLength.classList.remove('text-danger');
+    }
+
+    function renderSpanCurrentLength(length){
+        spanCurrentLength.innerHTML = length;
+        verifyDescriptionMinimumLength();
+    }
+    
+    textareaDescription.addEventListener('keyup', function(e){
+        renderSpanCurrentLength(this.value.length);
+    });
+
+    verifyDescriptionMinimumLength();
+</script>
